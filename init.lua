@@ -24,6 +24,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 	command = "if mode() != 'c' | checktime | endif",
 })
 
+-- noswap
+vim.opt.swapfile = false
 -- spacing/indent
 vim.opt.tabstop = 4
 vim.opt.scrolloff = 8
