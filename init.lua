@@ -33,3 +33,4 @@ vim.opt.sidescrolloff = 8
 vim.opt.shiftwidth = 4
 vim.opt.wrap = true
 vim.opt.timeoutlen = 50
+vim.opt.number = true

@@ -2,16 +2,23 @@ return {
 	"folke/which-key.nvim", 
 	event = "VeryLazy",
 	opts = {
-		plugins = {
+		plugins = { 
 			presets = {
-				operations = false,
+				operators = false,
 				motions = false,
 				text_objects = false,
 				windows = false,
 				nav = false,
 				z = false, 
-				g = false
-			}
-		}
-	}
+				g = false,
+			},
+		},
+
+		ignore_missing = true,
+
+		--disable = {
+			--filetypes = { "fern" },
+		--},
+	},
+
 }
