@@ -11,8 +11,12 @@ wk.register({
         end,
         "Find File"
     },
+    g = {
+        name = "Git",
+        g = { "<cmd>LazyGit<CR>", "LazyGit" }
+    },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    --["c"] { "<cmd>BufferKill<CR>", "Close Buffer" },
+    ["c"] = { "<cmd>bd<CR>", "Close Buffer" },
     s = {
         name = "Search",
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
@@ -24,15 +28,19 @@ wk.register({
         f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
     },
     ["b"] = {
-            function()
-                harpoon.ui:toggle_quick_menu(harpoon:list())
-            end,
-            "Barpoon Menu"
+        function()
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+        end,
+        "Barpoon Menu"
     },
     ["a"] = {
         function()
             harpoon:list():append()
         end,
         "Barpoon Add"
-    },
+    }
 }, { prefix = "<leader>" })
+
+wk.register({
+    ["e"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Expand error" }
+}, { prefix = "g" })

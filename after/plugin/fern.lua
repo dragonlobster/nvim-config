@@ -10,7 +10,7 @@ local function init_fern()
 	local function fern_smart_leaf()
 		return vim.fn["fern#smart#leaf"](
 			"<Plug>(fern-action-open:select)",
-			"<Plug>(fern-action-expand)",
+			"<Plug>(fern-action-expand-tree)",
 			"<Plug>(fern-action-collapse)"
 		)
 	end
