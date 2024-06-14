@@ -2,8 +2,6 @@ return {
     {
         "lambdalisue/fern.vim",
         config = function()
-            local ferngroup = vim.api.nvim_create_augroup("fern-custom", { clear = true })
-
             local function init_fern()
                 vim.keymap.set("n", "<C-l>", "<C-w>l", { buffer = true });
                 vim.keymap.set("n", "<C-h>", "<C-w>h", { buffer = true });
@@ -24,6 +22,7 @@ return {
                 vim.keymap.set("n", "<CR>", "<Plug>(fern-smart-leaf)", { buffer = true, nowait = true })
             end
 
+            local ferngroup = vim.api.nvim_create_augroup("fern-custom", { clear = true })
             vim.api.nvim_create_autocmd("FileType",
                 {
                     group = ferngroup,
@@ -42,11 +41,11 @@ return {
         config = function()
             vim.g["fern_git_status#disable_directories"] = 1
 
-            local hide_dirs  = "^\\%(\\.git\\|node_modules\\)$"
+            local hide_dirs                              = "^\\%(\\.git\\|node_modules\\)$"
             --local hide_files = "\\%(\\.byebug\\|\\.ruby-\\)\\+"
 
-            vim.g["fern#default_exclude"] = hide_dirs --.. "\\|" .. hide_files
-            vim.g["fern#default_hidden"] = 1
+            vim.g["fern#default_exclude"]                = hide_dirs --.. "\\|" .. hide_files
+            vim.g["fern#default_hidden"]                 = 1
         end
     },
     {
