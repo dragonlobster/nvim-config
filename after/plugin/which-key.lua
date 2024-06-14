@@ -31,13 +31,13 @@ wk.register({
         function()
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
-        "Barpoon Menu"
+        "Harpoon Menu"
     },
     ["a"] = {
         function()
-            harpoon:list():append()
+            harpoon:list():add()
         end,
-        "Barpoon Add"
+        "Harpoon Add"
     }
 }, { prefix = "<leader>" })
 

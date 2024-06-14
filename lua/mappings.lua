@@ -2,6 +2,7 @@ vim.g.mapleader = ","
 vim.keymap.set("n", "<C-s>", ":w<CR>")  -- save file
 
 vim.keymap.set("n", "|", ":vsplit<CR>") -- vertical split
+vim.keymap.set("n", "_", ":split<CR>") -- horizontal split
 
 vim.keymap.set("n", "0", "^")           -- swap beginning of line
 vim.keymap.set("n", "^", "0")           -- swap beginning of line
