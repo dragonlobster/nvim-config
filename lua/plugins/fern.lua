@@ -41,7 +41,12 @@ return {
         dependencies = { "lambdaliuse/fern.vim" },
         config = function()
             vim.g["fern_git_status#disable_directories"] = 1
-            vim.g["fern#default_exclude"] = "^node_modules$"
+
+            local hide_dirs  = "^\\%(\\.git\\|node_modules\\)$"
+            --local hide_files = '\\%(\\.byebug\\|\\.ruby-\\)\+'
+
+            vim.g["fern#default_exclude"] = hide_dirs
+            vim.g["fern#default_hidden"] = 1
         end
     },
     {
