@@ -16,8 +16,8 @@ return {
 
         ignore_missing = true,
 
-        --disable = {
-        --filetypes = { "fern" },
-        --},
+        disable = {
+            filetypes = { "fern" },
+        },
     },
 }
