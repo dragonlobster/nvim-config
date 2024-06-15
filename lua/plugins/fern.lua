@@ -56,11 +56,11 @@ return {
         "lambdalisue/glyph-palette.vim",
         dependencies = { "lambdalisue/fern.vim", "lambdalisue/nerdfont.vim" },
         config = function()
-            local glyphgroup = vim.api.nvim_create_augroup("glyph-custom", { clear = true })
-
             local function init_glyph_palette()
-                return vim.fn["glyph_palette#apply"]()
+                vim.fn["glyph_palette#apply"]()
             end
+
+            local glyphgroup = vim.api.nvim_create_augroup("glyph-custom", { clear = true })
 
             vim.api.nvim_create_autocmd("FileType",
                 {

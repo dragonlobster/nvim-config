@@ -80,7 +80,7 @@ require("lspconfig").lua_ls.setup({
                 version = "LuaJIT"
             },
             diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "utf8" },
             },
             workspace = {
                 library = {
