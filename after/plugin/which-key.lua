@@ -24,7 +24,7 @@ local function harpoon_add()
         local item = {
             value = rpath,
             context = {
-                row = 0,
+                row = 1,
                 col = 0,
             },
         }
