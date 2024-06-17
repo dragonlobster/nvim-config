@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             ["s"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature" },
             ["R"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
             ["h"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-        }, { prefix = "g" })
+        }, { prefix = "g", buffer = 0 })
 
         vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
     end

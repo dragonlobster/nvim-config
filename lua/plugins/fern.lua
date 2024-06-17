@@ -8,6 +8,7 @@ return {
                 vim.opt_local.number = false
                 vim.opt_local.fillchars = { eob = " " }
 
+
                 -- fern expand collapse
                 local function fern_smart_leaf()
                     return vim.fn["fern#smart#leaf"](
@@ -29,6 +30,9 @@ return {
                     pattern = { "fern" },
                     callback = init_fern,
                 })
+
+            -- fern#get_path()
+            vim.cmd("source vim/fern.vim")
         end
     },
     {

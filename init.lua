@@ -4,6 +4,9 @@ require("mappings")
 -- options
 require("opts")
 
+-- help
+vim.cmd("source vim/help.vim")
+
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
