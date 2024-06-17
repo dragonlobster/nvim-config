@@ -1,6 +1,14 @@
 local wk = require("which-key")
 local harpoon = require("harpoon")
 
+local function harpoon_add()
+    if vim.bo.filetype == "fern" then
+        harpoon:list():add({value = "test", context = "test"})
+    else
+        harpoon:list():add()
+    end
+end
+
 wk.register({
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
@@ -34,9 +42,7 @@ wk.register({
         "Harpoon Menu"
     },
     ["a"] = {
-        function()
-            harpoon:list():add()
-        end,
+        harpoon_add,
         "Harpoon Add"
     }
 }, { prefix = "<leader>" })
