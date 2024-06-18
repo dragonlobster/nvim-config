@@ -1,6 +1,9 @@
 local Path = require("plenary.path")
 local harpoon = require("harpoon")
 
+-- fern get_path, is_dir
+--vim.cmd("source " .. nvimrc .. "/vim/fern.vim")
+
 local M = {}
 
 function M.normalize_path(buf_name, root)
@@ -38,11 +41,37 @@ function M.harpoon_add()
 end
 
 function M.harpoon_menu()
-    --if vim.bo.filetype == "fern" then
-     --   vim.notify("Harpoon: Can't open menu in fern buffer", vim.log.levels.ERROR)
-      --  return
-    --end
+    -- comment if want to use harpoon menu in fern
+    if vim.bo.filetype == "fern" then
+        vim.notify("Harpoon: Can't open menu in fern buffer", vim.log.levels.ERROR)
+        return
+    end
+    -- comment if want to use harpoon menu in fern
     harpoon.ui:toggle_quick_menu(harpoon:list())
 end
+
+function string.starts(String, Start)
+    return string.sub(String, 1, string.len(Start)) == Start
+end
+
+-- how to customize select function in harpoon when opened in fern
+--[[
+local is_fern = false
+harpoon:extend({
+    UI_CREATE = function(cx)
+        is_fern = string.starts(cx.current_file, "fern://")
+        if is_fern then
+
+            vim.keymap.set("n", "<CR>", function()
+                harpoon.ui:select_menu_item()
+            end, { buffer = cx.bufnr, remap = true })
+        end
+    end,
+    SELECT = function(cx)
+        if is_fern then
+            print(dump(cx.item))
+        end
+    end
+})--]]
 
 return M

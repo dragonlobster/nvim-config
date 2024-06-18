@@ -31,8 +31,6 @@ return {
                     callback = init_fern,
                 })
 
-            -- fern#get_path()
-            vim.cmd("source vim/fern.vim")
         end
     },
     {

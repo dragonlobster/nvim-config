@@ -5,7 +5,7 @@ require("mappings")
 require("opts")
 
 -- help
-vim.cmd("source vim/help.vim")
+--vim.cmd("source " .. nvimrc .. "vim/help.vim")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

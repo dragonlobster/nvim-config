@@ -2,8 +2,8 @@ local wk = require("which-key")
 local fh = require("fern-harpoon")
 
 wk.register({
-    ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-    ["e"] = { "<cmd>Fern . -width=35 -drawer -toggle<CR>", "Explorer" },
+    ["q"] = { "<cmd>confirm qa<CR>", "Quit Neovim" },
+    ["e"] = { "<cmd>Fern . -width=35 -stay -drawer -toggle<CR>", "Explorer" },
 
     ["f"] = {
         function()
@@ -13,7 +13,7 @@ wk.register({
     },
 
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    ["c"] = { "<cmd>bd<CR>", "Close Buffer" },
+    ["c"] = { "<cmd>confirm q<CR>", "Close Window" },
 
     s = {
         name = "Search",
