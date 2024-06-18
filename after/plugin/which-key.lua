@@ -3,7 +3,7 @@ local fh = require("fern-harpoon")
 
 wk.register({
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-    ["e"] = { "<cmd>Fern . -width=35 -drawer -stay -toggle<CR>", "Explorer" },
+    ["e"] = { "<cmd>Fern . -width=35 -drawer -toggle<CR>", "Explorer" },
 
     ["f"] = {
         function()
@@ -27,7 +27,11 @@ wk.register({
     g = {
         name = "Git",
         g = { "<cmd>LazyGit<CR>", "LazyGit" }
-    }
+    },
+    ["b"] = {
+        fh.harpoon_menu,
+        "Harpoon Menu"
+    },
 }, { prefix = "<leader>" })
 
 local function bind_keys_nonfern()
@@ -37,10 +41,6 @@ local function bind_keys_nonfern()
             l = {
                 name = "LSP",
                 f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
-            },
-            ["b"] = {
-                fh.harpoon_menu,
-                "Harpoon Menu"
             },
         }, { prefix = "<leader>", buffer = 0 })
         wk.register({

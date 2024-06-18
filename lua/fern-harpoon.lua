@@ -38,10 +38,10 @@ function M.harpoon_add()
 end
 
 function M.harpoon_menu()
-    if vim.bo.filetype == "fern" then
-        vim.notify("Harpoon: Can't open menu in fern buffer", vim.log.levels.ERROR)
-        return
-    end
+    --if vim.bo.filetype == "fern" then
+     --   vim.notify("Harpoon: Can't open menu in fern buffer", vim.log.levels.ERROR)
+      --  return
+    --end
     harpoon.ui:toggle_quick_menu(harpoon:list())
 end
 
