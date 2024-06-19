@@ -3,7 +3,16 @@ local fh = require("fern-harpoon")
 
 wk.register({
     ["q"] = { "<cmd>confirm qa<CR>", "Quit Neovim" },
-    ["e"] = { "<cmd>Fern . -width=35 -stay -drawer -toggle<CR>", "Explorer" },
+    --["e"] = { "<cmd>Fern . -reveal=% -stay -drawer -toggle<CR>", "Explorer" },
+
+    ["e"] = {
+        function()
+            vim.cmd("Fern . -reveal=% -stay -drawer -toggle")
+            vim.cmd("wincmd =")
+        end
+        ,
+        "Explorer"
+    },
 
     ["f"] = {
         function()

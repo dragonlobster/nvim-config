@@ -31,6 +31,12 @@ return {
                     callback = init_fern,
                 })
 
+            local hide_dirs = "^\\%(\\.git\\|node_modules\\)$"
+            --local hide_files = "\\%(\\.byebug\\|\\.ruby-\\)\\+"
+
+            vim.g["fern#default_exclude"] = hide_dirs --.. "\\|" .. hide_files
+            vim.g["fern#default_hidden"] = 1
+            --vim.g["fern#drawer_keep"] = true
         end
     },
     {
@@ -43,11 +49,6 @@ return {
         config = function()
             vim.g["fern_git_status#disable_directories"] = 1
 
-            local hide_dirs = "^\\%(\\.git\\|node_modules\\)$"
-            --local hide_files = "\\%(\\.byebug\\|\\.ruby-\\)\\+"
-
-            vim.g["fern#default_exclude"] = hide_dirs --.. "\\|" .. hide_files
-            vim.g["fern#default_hidden"] = 1
         end
     },
     {
