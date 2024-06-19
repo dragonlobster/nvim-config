@@ -4,5 +4,6 @@ augroup vertical_help
   autocmd FileType help
         \ setlocal bufhidden=unload |
         \ wincmd L |
-        \ vertical resize 80
+        \ vertical resize 80 |
+        \ set winfixwidth
 augroup END

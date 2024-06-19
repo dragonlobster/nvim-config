@@ -8,17 +8,19 @@ return {
         vim.api.nvim_create_autocmd("User", {
             pattern = "LeapEnter",
             callback = function()
-                vim.notify(vim.fn.nr2char(129432))
+                vim.notify(vim.fn.nr2char(129432)) -- when leap is active show kangaroo
             end,
         }
+
+        -- indicate when leap is left
         )
         vim.api.nvim_create_autocmd("User", {
             pattern = "LeapLeave",
             callback = function()
-                vim.notify(" ")
+                vim.notify(" ") -- clear notification when leap is left
             end,
         }
         )
     end,
-    lazy = false
+    --lazy = false
 }

@@ -1,9 +1,6 @@
 local Path = require("plenary.path")
 local harpoon = require("harpoon")
 
--- fern get_path, is_dir
---vim.cmd("source " .. nvimrc .. "/vim/fern.vim")
-
 local M = {}
 
 function M.normalize_path(buf_name, root)
@@ -22,7 +19,7 @@ function M.harpoon_add()
 
         local rpath = M.normalize_path(
             path,
-            vim.loop.cwd()
+            vim.uv.cwd()
         )
 
         local item = {
@@ -50,9 +47,9 @@ function M.harpoon_menu()
     harpoon.ui:toggle_quick_menu(harpoon:list())
 end
 
-function string.starts(String, Start)
-    return string.sub(String, 1, string.len(Start)) == Start
-end
+-- function string.starts(String, Start)
+--     return string.sub(String, 1, string.len(Start)) == Start
+-- end
 
 -- how to customize select function in harpoon when opened in fern
 --[[
@@ -61,7 +58,6 @@ harpoon:extend({
     UI_CREATE = function(cx)
         is_fern = string.starts(cx.current_file, "fern://")
         if is_fern then
-
             vim.keymap.set("n", "<CR>", function()
                 harpoon.ui:select_menu_item()
             end, { buffer = cx.bufnr, remap = true })

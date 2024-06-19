@@ -1,14 +1,12 @@
 local wk = require("which-key")
-local fh = require("fern-harpoon")
+local hf = require("harpoon-fern")
 
 wk.register({
     ["q"] = { "<cmd>confirm qa<CR>", "Quit Neovim" },
-    --["e"] = { "<cmd>Fern . -reveal=% -stay -drawer -toggle<CR>", "Explorer" },
-
     ["e"] = {
         function()
-            vim.cmd("Fern . -reveal=% -stay -drawer -toggle")
-            vim.cmd("wincmd =")
+            vim.cmd("Fern . -reveal=% -stay -drawer -toggle") -- toggle Fern drawer
+            vim.cmd("wincmd =") --even out the size of all windows
         end
         ,
         "Explorer"
@@ -30,7 +28,7 @@ wk.register({
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     },
     ["a"] = {
-        fh.harpoon_add,
+        hf.harpoon_add,
         "Harpoon Add"
     },
     g = {
@@ -38,11 +36,12 @@ wk.register({
         g = { "<cmd>LazyGit<CR>", "LazyGit" }
     },
     ["b"] = {
-        fh.harpoon_menu,
+        hf.harpoon_menu,
         "Harpoon Menu"
     },
 }, { prefix = "<leader>" })
 
+-- which keys that are only for non-fern buffers
 local function bind_keys_nonfern()
     if vim.bo.filetype ~= "fern" then
         wk.register({
