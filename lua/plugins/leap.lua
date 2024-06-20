@@ -4,6 +4,8 @@ return {
     config = function()
         require("leap").create_default_mappings()
 
+        -- TODO: add group
+
         -- indicate when leap is active
         vim.api.nvim_create_autocmd("User", {
             pattern = "LeapEnter",
