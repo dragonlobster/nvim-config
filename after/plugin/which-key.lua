@@ -1,6 +1,5 @@
 local wk = require("which-key")
 local hf = require("harpoon-fern")
-local harpoon = require("harpoon")
 
 wk.register({
     ["q"] = { "<cmd>confirm qa<CR>", "Quit Neovim" },
@@ -29,13 +28,7 @@ wk.register({
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     },
     ["a"] = {
-        function()
-            if vim.bo.filetype == "fern" then
-                hf.harpoon_add()
-            else
-                harpoon:list():add()
-            end
-        end,
+        hf.harpoon_add,
         "Harpoon Add"
     },
     g = {
