@@ -1,6 +1,5 @@
 return {
-    name = "harpoon-fern",
-    dir = "/Users/Fake/Projects/harpoon-fern",
+    "dragonlobster/harpoon-fern.nvim",
     dependencies = { "harpoon", "fern.vim", "plenary.nvim" },
     config = function()
         local configs = require("harpoon-fern")
