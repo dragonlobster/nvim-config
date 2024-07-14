@@ -25,3 +25,4 @@ vim.keymap.set("n", "n", "nzzzv") -- cursor stays in middle on n (find next)
 vim.keymap.set("n", "N", "Nzzzv") -- cursor stays in middle on N (find next reverse)
 
 vim.keymap.set("n", "Q", "<nop>") -- never press Q
+
