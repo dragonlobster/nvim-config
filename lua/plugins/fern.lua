@@ -41,22 +41,22 @@ return {
     },
     {
         "lambdalisue/nerdfont.vim",
-        dependencies = { "lambdalisue/fern.vim" }
+        dependencies = { "lambdalisue/vim-fern" }
     },
     {
         "lambdalisue/fern-git-status.vim",
-        dependencies = { "lambdaliuse/fern.vim" },
+        dependencies = { "lambdaliuse/vim-fern" },
         config = function()
             vim.g["fern_git_status#disable_directories"] = 1 -- don't need git status on directories
         end
     },
     {
         "lambdalisue/fern-hijack.vim",
-        dependencies = { "lambdaliuse/fern.vim" }
+        dependencies = { "lambdaliuse/vim-fern" }
     },
     {
         "lambdalisue/glyph-palette.vim",
-        dependencies = { "lambdalisue/fern.vim", "lambdalisue/nerdfont.vim" },
+        dependencies = { "lambdalisue/vim-fern", "lambdalisue/nerdfont.vim" },
 
         -- init glyph palette (color) on fern buffer
         config = function()
@@ -75,7 +75,7 @@ return {
     },
     {
         "lambdalisue/fern-renderer-nerdfont.vim",
-        dependencies = { "lambdalisue/fern.vim", "lambdalisue/glyph-palette.vim" },
+        dependencies = { "lambdalisue/vim-fern", "lambdalisue/glyph-palette.vim" },
         config = function()
             vim.g["fern#renderer"] = "nerdfont"
         end
