@@ -1,6 +1,6 @@
 return {
     {
-        "lambdalisue/fern.vim",
+        "lambdalisue/vim-fern",
         config = function()
             local function init_fern()
                 vim.keymap.set("n", "<C-l>", "<C-w>l", { buffer = true }); -- focus to the right
