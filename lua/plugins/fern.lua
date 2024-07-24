@@ -32,10 +32,10 @@ return {
                     callback = init_fern,
                 })
 
-            local hide_dirs = "^\\%(\\.git\\|node_modules\\)$"
-            --local hide_files = "\\%(\\.byebug\\|\\.ruby-\\)\\+"
+            local hide_dirs = "^\\%(\\.git\\|^node_modules\\)$"
+            local hide_files = "\\%(\\.DS_Store\\)\\+"
 
-            vim.g["fern#default_exclude"] = hide_dirs --.. "\\|" .. hide_files
+            vim.g["fern#default_exclude"] = hide_dirs .. "\\|" .. hide_files
             vim.g["fern#default_hidden"] = 1
         end
     },
