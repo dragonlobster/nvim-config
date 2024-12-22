@@ -3,7 +3,7 @@ local hf = require("harpoon-fern")
 
 local function toggle_fern()
     vim.cmd("Fern . -reveal=% -stay -drawer -toggle") -- toggle Fern drawer
-    vim.cmd("wincmd =")                               --even out the size of all windows
+    vim.cmd("wincmd =")                               -- even out the size of all windows
 end
 
 local function telescope_find()

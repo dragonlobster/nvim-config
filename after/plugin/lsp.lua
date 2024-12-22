@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local default_setup = function(server)
-    if server ~= "tsserver" then
+    if server ~= "ts_ls" then
         require("lspconfig")[server].setup({
             capabilities = lsp_capabilities,
         })
@@ -41,7 +41,7 @@ local lsp_servers = {
     "docker_compose_language_service",
     "clangd",
     "pyright",
-    "tsserver",
+    "ts_ls",
     "gopls"
 }
 

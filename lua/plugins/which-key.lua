@@ -15,6 +15,5 @@ return {
             },
         },
         delay = 0,
-        ignore_missing = true,
     },
 }
