@@ -10,15 +10,25 @@ local function telescope_find()
     require("telescope.builtin").find_files()
 end
 
+local function toggle_dap_ui()
+    require("dapui").toggle()
+end
+
+local function toggle_breakpoint()
+    require("dap").toggle_breakpoint()
+end
+
 local all_keys = {
     { "<leader>a",  hf.harpoon_add,                 desc = "Harpoon Add" },
-    { "<leader>b",  hf.harpoon_menu,                desc = "Harpoon Menu" },
+    { "<leader>b",  toggle_breakpoint,              desc = "Breakpoint" },
     { "<leader>c",  "<cmd>confirm q<CR>",           desc = "Close Window" },
+    { "<leader>d",  toggle_dap_ui,                  desc = "Debugger" },
     { "<leader>e",  toggle_fern,                    desc = "Explorer" },
     { "<leader>f",  telescope_find,                 desc = "Find File" },
     { "<leader>g",  group = "Git", },
     { "<leader>gg", "<cmd>LazyGit<CR>",             desc = "LazyGit" },
     { "<leader>h",  "<cmd>nohlsearch<CR>",          desc = "No Highlight" },
+    { "<leader>m",  hf.harpoon_menu,                desc = "Harpoon Menu" },
     { "<leader>q",  "<cmd>confirm qa<CR>",          desc = "Quit Neovim" },
     { "<leader>s",  group = "Search" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>",   desc = "Keymaps" },

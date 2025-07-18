@@ -3,11 +3,11 @@ return {
         "lambdalisue/vim-fern",
         config = function()
             local function init_fern()
-                vim.keymap.set("n", "<C-l>", "<C-w>l", { buffer = true }); -- focus to the right
-                vim.keymap.set("n", "<C-h>", "<C-w>h", { buffer = true }); -- focus to the left 
+                vim.keymap.set("n", "<C-l>", "<C-w>l", { buffer = true });                       -- focus to the right
+                vim.keymap.set("n", "<C-h>", "<C-w>h", { buffer = true });                       -- focus to the left
                 vim.keymap.set("n", "|", "<Plug>(fern-action-open:rightest)", { buffer = true }) -- vertical split to the far right
-                vim.opt_local.number = false -- no line numbers
-                vim.opt_local.fillchars = { eob = " " } -- fill chars
+                vim.opt_local.number = false                                                     -- no line numbers
+                vim.opt_local.fillchars = { eob = " " }                                          -- fill chars
 
                 -- fern enter, expand, collapse
                 local function fern_smart_leaf()
@@ -32,10 +32,10 @@ return {
                     callback = init_fern,
                 })
 
-            local hide_dirs = "^\\%(\\.git\\|^node_modules\\)$"
+            local hide_dirs = "^\\%(\\.git\\|node_modules\\)$"
             local hide_files = "\\%(\\.DS_Store\\)\\+"
-
             vim.g["fern#default_exclude"] = hide_dirs .. "\\|" .. hide_files
+
             vim.g["fern#default_hidden"] = 1
         end
     },
