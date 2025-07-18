@@ -42,10 +42,11 @@ local lsp_servers = {
     "clangd",
     "pyright",
     "ts_ls",
-    "gopls"
+    "gopls",
+    "clangd"
 }
 
-require("mason").setup({})
+require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = lsp_servers,
     handlers = {
