@@ -33,6 +33,8 @@ local all_keys = {
     { "<leader>s",  group = "Search" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>",   desc = "Keymaps" },
     { "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Text" },
+    { "<leader>p",  group = "Parrot" },
+    { "<leader>pp", "<cmd>PrtChatToggle<cr>",       desc = "Parrot Chat" },
 }
 
 wk.add(all_keys)
