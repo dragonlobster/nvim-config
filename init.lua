@@ -29,3 +29,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
     pattern = { "*" },
     command = "if mode() != 'c' | checktime | endif",
 })
+
+vim.cmd.colorscheme "catppuccin"
