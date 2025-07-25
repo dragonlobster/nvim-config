@@ -79,5 +79,13 @@ return {
         config = function()
             vim.g["fern#renderer"] = "nerdfont"
         end
+    },
+    {
+        "dragonlobster/harpoon-fern.nvim",
+        dependencies = { "harpoon", "vim-fern", "plenary.nvim" },
+        config = function()
+            local configs = require("harpoon-fern")
+            configs.setup()
+        end
     }
 }
