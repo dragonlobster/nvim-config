@@ -22,3 +22,6 @@ vim.opt.undofile = true
 vim.opt.updatetime = 50
 
 vim.opt.incsearch = true
+
+-- splitright
+vim.opt.splitright = true

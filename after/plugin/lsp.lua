@@ -24,15 +24,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local default_setup = function(server)
-    if server ~= "ts_ls" then
-        require("lspconfig")[server].setup({
-            capabilities = lsp_capabilities,
-        })
-    end
-end
 
 local lsp_servers = {
     "lua_ls",
@@ -46,37 +37,31 @@ local lsp_servers = {
     "clangd"
 }
 
-require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = lsp_servers,
-    handlers = {
-        default_setup,
-    },
+    ensure_installed = lsp_servers
 })
 
-local cmp = require("cmp")
-
-cmp.setup({
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "parrot" }
+vim.diagnostic.config({
+    severity_sort = true,
+    update_in_insert = true,
+    signs = {
+        priority = 300,
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ", -- 󰅚
+            [vim.diagnostic.severity.WARN] = " ", -- 󰀪
+            [vim.diagnostic.severity.INFO] = " ", -- 󰋽
+            [vim.diagnostic.severity.HINT] = "󰠠 ", -- 󰌶
+        },
     },
-    mapping = cmp.mapping.preset.insert({
-        -- Enter key confirms completion item
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-
-        -- Ctrl + space triggers completion menu
-        ["<C-Space>"] = cmp.mapping.complete(),
-    }),
-    snippet = {
-        expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-        end,
-    },
+    virtual_text = {
+        source = true,
+        spacing = 2,
+        prefix = "",
+    }
 })
 
-require("lspconfig").lua_ls.setup({
-    capabilities = lsp_capabilities,
+
+vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
             runtime = {
@@ -93,3 +78,8 @@ require("lspconfig").lua_ls.setup({
         }
     }
 })
+
+-- vim.lsp.config("*", {
+--     capabilities = require("blink.cmp").get_lsp_capabilities(nil, true),
+--     root_markers = { ".git" },
+-- })
