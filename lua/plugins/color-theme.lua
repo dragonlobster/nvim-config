@@ -11,9 +11,6 @@ return {
                 integrations = {
                     fern = true,
                     which_key = true,
-                    telescope = {
-                        enabled = true,
-                    }
                 }
             })
         end
