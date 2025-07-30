@@ -54,7 +54,7 @@ vim.diagnostic.config({
         },
     },
     virtual_text = {
-        source = true,
+        source = "if_many",
         spacing = 2,
         prefix = "",
     }
