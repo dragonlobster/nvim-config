@@ -49,6 +49,7 @@ return {
 
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
+                menu = { border = "rounded" },
                 documentation = { auto_show = true },
                 list = { selection = { auto_insert = false } }
             },
@@ -57,6 +58,22 @@ return {
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
+
+                -- only show when keyword is 3 or more characters long
+                providers = {
+                    cmdline = {
+                        min_keyword_length = function(ctx)
+                            -- if there is no empty space, the minimium is 3 (because empty space means passing an argument)
+                            -- if the first letter is lowercased, the minimum is 3 (upper case are usually plug in commands)
+                            if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil
+                                and ctx.line:sub(1, 1) == string.lower(ctx.line:sub(1, 1))
+                            then
+                                return 3
+                            end
+                            return 0
+                        end
+                    }
+                }
             },
 
             -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -64,9 +81,32 @@ return {
             -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
             --
             -- See the fuzzy documentation for more information
-            fuzzy = { implementation = "prefer_rust_with_warning" }
+            fuzzy = { implementation = "prefer_rust_with_warning" },
+
+            cmdline = {
+                keymap = {
+                    ["<Tab>"] = { "show_and_insert", "select_next" },
+                    ["<S-Tab>"] = { "show_and_insert", "select_prev" },
+
+                    ["<C-space>"] = { "show", "fallback" },
+
+                    ["<Down>"] = { "select_next", "fallback" },
+                    ["<Up>"] = { "select_prev", "fallback" },
+
+                    ["<CR>"] = { "accept", "fallback" },
+                    ["<C-c>"] = { "cancel" },
+                },
+                completion = {
+                    menu = {
+                        auto_show = function(_)
+                            return vim.fn.getcmdtype() == ":"
+                        end
+                    },
+                    list = { selection = { auto_insert = false, preselect = false } }
+                }
+            }
+
         },
         opts_extend = { "sources.default" }
     }
-
 }

@@ -11,7 +11,18 @@ return {
                 integrations = {
                     fern = true,
                     which_key = true,
-                }
+                    blink_cmp = {
+                        style = "bordered"
+                    }
+                },
+
+                custom_highlights = function(colors)
+                    return {
+                        Pmenu = { bg = colors.none },
+                        FernWindowSelectIndicator = { fg = colors.text }
+                    }
+                end
+
             })
         end
     },
