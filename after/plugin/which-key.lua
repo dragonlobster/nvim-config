@@ -1,6 +1,7 @@
 local wk = require("which-key")
 local hf = require("harpoon-fern")
 local picker = require("snacks").picker
+local lazygit = require("snacks").lazygit
 local dap = require("dap")
 local dapui = require("dapui")
 
@@ -17,7 +18,7 @@ local all_keys = {
     { "<leader>e",  toggle_fern,              desc = "Explorer" },
     { "<leader>f",  picker.files,             desc = "Find File" },
     { "<leader>g",  group = "Git", },
-    { "<leader>gg", "<cmd>LazyGit<CR>",       desc = "LazyGit" },
+    { "<leader>gg", lazygit.open,             desc = "LazyGit" },
     { "<leader>h",  "<cmd>nohlsearch<CR>",    desc = "No Highlight" },
     { "<leader>m",  hf.harpoon_menu,          desc = "Harpoon Menu" },
     { "<leader>q",  "<cmd>confirm qa<CR>",    desc = "Quit Neovim" },

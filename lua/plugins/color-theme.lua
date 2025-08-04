@@ -18,7 +18,6 @@ return {
 
                 custom_highlights = function(colors)
                     return {
-                        Pmenu = { bg = colors.none },
                         FernWindowSelectIndicator = { fg = colors.text }
                     }
                 end
