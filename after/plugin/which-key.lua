@@ -31,8 +31,7 @@ local all_keys = {
     { "<leader>sk", picker.keymaps,           desc = "Keymaps" },
     { "<leader>st", picker.grep,              desc = "Text" },
     { "<leader>p",  group = "Parrot",         desc = "Parrot" },
-    { "<leader>pp", "<cmd>PrtChatToggle<cr>", desc = "Parrot Chat" },
-    { "<leader>y",  mode = { "n", "v" },      "<cmd>\"+y<cr>",      desc = "System Copy" },
+    { "<leader>pp", "<cmd>PrtChatToggle<cr>", desc = "Parrot Chat" }
 }
 
 wk.add(all_keys)

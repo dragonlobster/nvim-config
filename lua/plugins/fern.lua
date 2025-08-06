@@ -1,3 +1,6 @@
+vim.g["fern#renderer"] = "nerdfont"
+vim.g["fern_git_status#disable_directories"] = 1 -- don't need git status on directories
+
 return {
     {
         "lambdalisue/vim-fern"
@@ -9,9 +12,6 @@ return {
     {
         "lambdalisue/fern-git-status.vim",
         dependencies = { "lambdaliuse/vim-fern" },
-        config = function()
-            vim.g["fern_git_status#disable_directories"] = 1 -- don't need git status on directories
-        end
     },
     {
         "lambdalisue/fern-hijack.vim",
@@ -24,16 +24,9 @@ return {
     {
         "lambdalisue/fern-renderer-nerdfont.vim",
         dependencies = { "lambdalisue/vim-fern", "lambdalisue/glyph-palette.vim" },
-        config = function()
-            vim.g["fern#renderer"] = "nerdfont"
-        end
     },
     {
         "dragonlobster/harpoon-fern.nvim",
-        dependencies = { "harpoon", "vim-fern", "plenary.nvim" },
-        config = function()
-            local configs = require("harpoon-fern")
-            configs.setup()
-        end
+        dependencies = { "harpoon", "vim-fern", "plenary.nvim" }
     }
 }

@@ -11,7 +11,6 @@ return {
             },
         })
 
-
         configs:extend({
             UI_CREATE = function(cx)
                 vim.keymap.set("n", "|", function()
