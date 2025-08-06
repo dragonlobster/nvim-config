@@ -26,5 +26,10 @@ vim.keymap.set("n", "N", "Nzzzv")            -- cursor stays in middle on N (fin
 
 vim.keymap.set("n", "Q", "<nop>")            -- never press Q
 
+vim.keymap.set("n", "+", "j")                -- go up
+vim.keymap.set("n", "-", "k")                -- go down
+vim.keymap.set("n", "j", "+")                -- go down to first non-emtpy character
+vim.keymap.set("n", "k", "-")                -- go up to first non-empty character
+
 -- Open compiler
 vim.api.nvim_set_keymap("n", "<F5>", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })

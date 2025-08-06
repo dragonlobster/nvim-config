@@ -18,7 +18,7 @@ return {
 
                 custom_highlights = function(colors)
                     return {
-                        FernWindowSelectIndicator = { fg = colors.text }
+                        FernWindowSelectIndicator = { fg = colors.text },
                     }
                 end
 

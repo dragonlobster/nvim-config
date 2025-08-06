@@ -2,8 +2,13 @@ local wk = require("which-key")
 local hf = require("harpoon-fern")
 local picker = require("snacks").picker
 local lazygit = require("snacks").lazygit
+local terminal = require("snacks").terminal
 local dap = require("dap")
 local dapui = require("dapui")
+
+-- after keymaps that are instant (no need which key)
+vim.keymap.set({ "n", "t" }, "<C-Bslash>", terminal.toggle)
+--vim.keymap.set("t", "<C-Bslash>", "<C-Bslash><C-n><cmd>FloatermToggle<CR>")
 
 local function toggle_fern()
     vim.cmd("Fern . -reveal=% -stay -drawer -toggle") -- toggle Fern drawer
@@ -25,8 +30,9 @@ local all_keys = {
     { "<leader>s",  group = "Search" },
     { "<leader>sk", picker.keymaps,           desc = "Keymaps" },
     { "<leader>st", picker.grep,              desc = "Text" },
-    { "<leader>p",  group = "Parrot" },
+    { "<leader>p",  group = "Parrot",         desc = "Parrot" },
     { "<leader>pp", "<cmd>PrtChatToggle<cr>", desc = "Parrot Chat" },
+    { "<leader>y",  mode = { "n", "v" },      "<cmd>\"+y<cr>",      desc = "System Copy" },
 }
 
 wk.add(all_keys)
