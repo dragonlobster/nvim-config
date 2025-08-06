@@ -14,7 +14,10 @@ return {
             win = {
                 position = "float",
                 border = "rounded",
-                title = vim.fn.nr2char(127776)
+                title = vim.fn.nr2char(127776),
+                on_buf = function(win)
+                    win:add_padding()
+                end
             }
         },
 
