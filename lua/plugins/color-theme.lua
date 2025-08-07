@@ -15,7 +15,11 @@ return {
 
             custom_highlights = function(colors)
                 return {
+                    -- fern highlight groups
                     FernWindowSelectIndicator = { fg = colors.text },
+                    GlyphPalette9 = { fg = colors.sapphire },
+
+                    -- status line highlight groups
                     MiniStatuslineModeNormal = { bg = colors.mauve },
                     MiniStatuslineModeInsert = { bg = colors.sky },
                     MiniStatuslineModeVisual = { bg = colors.lavender }
