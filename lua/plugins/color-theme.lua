@@ -16,6 +16,9 @@ return {
             custom_highlights = function(colors)
                 return {
                     FernWindowSelectIndicator = { fg = colors.text },
+                    MiniStatuslineModeNormal = { bg = colors.mauve },
+                    MiniStatuslineModeInsert = { bg = colors.sky },
+                    MiniStatuslineModeVisual = { bg = colors.lavender }
                 }
             end
         }

@@ -5,6 +5,7 @@ local lazygit = require("snacks").lazygit
 local terminal = require("snacks").terminal
 local dap = require("dap")
 local dapui = require("dapui")
+--local parrot = require("parrot")
 
 -- after keymaps that are instant (no need which key)
 vim.keymap.set({ "n", "t" }, "<C-Bslash>", terminal.toggle)
@@ -16,25 +17,35 @@ local function toggle_fern()
 end
 
 local all_keys = {
-    { "<leader>a",  hf.harpoon_add,           desc = "Harpoon Add" },
-    { "<leader>b",  dap.toggle_breakpoint,    desc = "Breakpoint" },
-    { "<leader>c",  "<cmd>confirm q<CR>",     desc = "Close Window" },
-    { "<leader>d",  dapui.toggle,             desc = "Debugger" },
-    { "<leader>e",  toggle_fern,              desc = "Explorer" },
-    { "<leader>f",  picker.files,             desc = "Find File" },
+    { "<leader>a",  hf.harpoon_add,        desc = "Harpoon Add" },
+    { "<leader>b",  dap.toggle_breakpoint, desc = "Breakpoint" },
+    { "<leader>c",  "<cmd>confirm q<CR>",  desc = "Close Window" },
+    { "<leader>d",  dapui.toggle,          desc = "Debugger" },
+    { "<leader>e",  toggle_fern,           desc = "Explorer" },
+    { "<leader>f",  picker.files,          desc = "Find File" },
     { "<leader>g",  group = "Git", },
-    { "<leader>gg", lazygit.open,             desc = "LazyGit" },
-    { "<leader>h",  "<cmd>nohlsearch<CR>",    desc = "No Highlight" },
-    { "<leader>m",  hf.harpoon_menu,          desc = "Harpoon Menu" },
-    { "<leader>q",  "<cmd>confirm qa<CR>",    desc = "Quit Neovim" },
+    { "<leader>gg", lazygit.open,          desc = "LazyGit" },
+    { "<leader>h",  "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+    { "<leader>m",  hf.harpoon_menu,       desc = "Harpoon Menu" },
+    { "<leader>q",  "<cmd>confirm qa<CR>", desc = "Quit Neovim" },
     { "<leader>s",  group = "Search" },
-    { "<leader>sk", picker.keymaps,           desc = "Keymaps" },
-    { "<leader>st", picker.grep,              desc = "Text" },
+    { "<leader>sk", picker.keymaps,        desc = "Keymaps" },
+    { "<leader>st", picker.grep,           desc = "Text" },
+}
+
+wk.add(all_keys)
+
+-- if parrot is enabled then add the keys to which-key
+local parrot_keys = {
     { "<leader>p",  group = "Parrot",         desc = "Parrot" },
     { "<leader>pp", "<cmd>PrtChatToggle<cr>", desc = "Parrot Chat" }
 }
 
-wk.add(all_keys)
+if vim.tbl_get(require("lazy.core.config"), "plugins", "parrot", "_", "loaded")
+then
+    wk.add(parrot_keys)
+end
+
 
 -- which keys that are only for filetype buffers
 local function bind_keys_nonfern()
