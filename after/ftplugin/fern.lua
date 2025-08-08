@@ -20,12 +20,6 @@ vim.keymap.set("n", "<Plug>(fern-smart-leaf)", fern_smart_leaf,
     { buffer = true, expr = true, remap = false })
 vim.keymap.set("n", "<CR>", "<Plug>(fern-smart-leaf)", { buffer = true, nowait = true })
 
--- hide dirs/files
-local hide_dirs = "^\\%(\\.git\\|node_modules\\)$"
-local hide_files = "\\%(\\.DS_Store\\)\\+"
-vim.g["fern#default_exclude"] = hide_dirs .. "\\|" .. hide_files
-
-vim.g["fern#default_hidden"] = 1
 
 -- local winhighlight, color of fern buffer
 vim.opt_local.winhighlight = "Normal:FernNormal"
