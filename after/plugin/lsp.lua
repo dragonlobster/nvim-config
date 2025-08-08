@@ -67,7 +67,7 @@ vim.lsp.config("lua_ls", {
                 version = "LuaJIT"
             },
             diagnostics = {
-                globals = { "vim", "utf8" },
+                globals = { "vim", "utf8", "MiniStatusline" },
             },
             workspace = {
                 library = {
