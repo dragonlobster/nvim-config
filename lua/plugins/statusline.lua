@@ -25,7 +25,7 @@ return {
                         local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
                         if vim.bo.filetype == "fern" then
-                            return symbols.fern
+                            return symbols.fern .. "Fern"
                         else
                             return MiniStatusline.combine_groups({
                                 { hl = mode_hl,                  strings = { mode } },

@@ -26,3 +26,6 @@ local hide_files = "\\%(\\.DS_Store\\)\\+"
 vim.g["fern#default_exclude"] = hide_dirs .. "\\|" .. hide_files
 
 vim.g["fern#default_hidden"] = 1
+
+-- local winhighlight, color of fern buffer
+vim.opt_local.winhighlight = "Normal:FernNormal"

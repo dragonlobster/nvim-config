@@ -25,3 +25,14 @@ vim.opt.incsearch = true
 
 -- splitright
 vim.opt.splitright = true
+
+-- thick window separators
+-- vim.opt.fillchars = {
+--     horiz     = '━',
+--     horizup   = '┻',
+--     horizdown = '┳',
+--     vert      = '┃',
+--     vertleft  = '┫',
+--     vertright = '┣',
+--     verthoriz = '╋',
+-- }

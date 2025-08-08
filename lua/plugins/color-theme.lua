@@ -18,6 +18,7 @@ return {
                     -- fern highlight groups
                     FernWindowSelectIndicator = { fg = colors.text },
                     GlyphPalette9 = { fg = colors.sapphire },
+                    FernNormal = { bg = colors.mantle },
 
                     -- status line highlight groups
                     MiniStatuslineModeNormal = { bg = colors.mauve },
