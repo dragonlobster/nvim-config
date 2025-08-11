@@ -13,6 +13,11 @@ return {
                 }
             },
 
+            styles = {
+                keywords = { "italic" },
+                booleans = { "italic" },
+            },
+
             custom_highlights = function(colors)
                 return {
                     -- fern highlight groups

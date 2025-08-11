@@ -5,6 +5,7 @@ local lazygit = require("snacks").lazygit
 local terminal = require("snacks").terminal
 local dap = require("dap")
 local dapui = require("dapui")
+local conform = require("conform")
 --local parrot = require("parrot")
 
 -- after keymaps that are instant (no need which key)
@@ -31,6 +32,7 @@ local all_keys = {
     { "<leader>s",  group = "Search" },
     { "<leader>sk", picker.keymaps,        desc = "Keymaps" },
     { "<leader>st", picker.grep,           desc = "Text" },
+    { "<leader>sf", picker.files,          desc = "Find File" },
 }
 
 wk.add(all_keys)
@@ -58,7 +60,8 @@ local function bind_keys_nonfern()
             },
             {
                 "<leader>lf",
-                "<cmd>lua vim.lsp.buf.format { async = true }<CR>",
+                conform.format,
+                --"<cmd>lua vim.lsp.buf.format { async = true }<CR>",
                 desc = "Format",
                 buffer = 0
             },
