@@ -34,6 +34,6 @@ return {
     },
     {
         "dragonlobster/harpoon-fern.nvim",
-        dependencies = { "harpoon", "vim-fern", "plenary.nvim" }
+        dependencies = { "harpoon", "vim-fern", "nvim-lua/plenary.nvim" }
     }
 }
