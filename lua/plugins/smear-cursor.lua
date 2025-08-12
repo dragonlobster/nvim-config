@@ -1,4 +1,4 @@
 return {
     "sphamba/smear-cursor.nvim",
-    opts = {},
+    opts = { smear_insert_mode = false },
 }
