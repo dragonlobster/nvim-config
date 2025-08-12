@@ -21,13 +21,6 @@ return {
             }
         },
         lazygit = { enabled = true, win = { style = "lazygit" } },
-        scroll = {
-            enabled = true,
-            -- animate = {
-            --     easing = "linear",
-            --     fps = 240
-            -- }
-        },
 
         ---@type table<string, snacks.win.Config>
         styles = {
