@@ -26,6 +26,10 @@ vim.keymap.set("n", "N", "Nzzzv")            -- cursor stays in middle on N (fin
 
 vim.keymap.set("n", "Q", "<nop>")            -- never press Q
 
+-- system copy TODO: put in which key?
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
 -- vim.keymap.set("n", "+", "j")                -- go up
 -- vim.keymap.set("n", "-", "k")                -- go down
 -- vim.keymap.set("n", "j", "+")                -- go down to first non-emtpy character

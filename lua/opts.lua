@@ -26,6 +26,9 @@ vim.opt.incsearch = true
 -- splitright
 vim.opt.splitright = true
 
+-- remove blinking cursors
+vim.opt.guicursor:remove { "t:block-blinkon500-blinkoff500-TermCursor" }
+
 -- thick window separators
 -- vim.opt.fillchars = {
 --     horiz     = '━',
