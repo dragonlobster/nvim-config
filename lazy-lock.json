@@ -1,7 +1,7 @@
 {
   "blink.cmp": { "branch": "main", "commit": "bae4bae0eedd1fa55f34b685862e94a222d5c6f8" },
   "catppuccin": { "branch": "main", "commit": "76a8d0515024cc55d8bd26fc13f1af88faef3ebf" },
-  "cmake-tools": { "branch": "master", "commit": "447fe7629bb5d5baca6f6099f3568484d149aa51" },
+  "cmake-tools": { "branch": "master", "commit": "90e4f1648fd139c67a3962af11e90a1c8a69fb2c" },
   "conform.nvim": { "branch": "master", "commit": "973f3cb73887d510321653044791d7937c7ec0fa" },
   "fern-git-status.vim": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },
   "fern-hijack.vim": { "branch": "master", "commit": "f65524899231b15528066744e714fb344abf0892" },
@@ -21,7 +21,7 @@
   "nvim-dap": { "branch": "master", "commit": "a479e25ed5b5d331fb46ee4b9e160ff02ac64310" },
   "nvim-dap-ui": { "branch": "master", "commit": "cf91d5e2d07c72903d052f5207511bf7ecdb7122" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6" },
-  "nvim-lspconfig": { "branch": "master", "commit": "f0c6ccf43997a1c7e9ec4aea36ffbf2ddd9f15ef" },
+  "nvim-lspconfig": { "branch": "master", "commit": "d6dc63670d3dc5204b1e874af4cbf340cb5d9d18" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "overseer.nvim": { "branch": "master", "commit": "fe7b2f9ba263e150ab36474dfc810217b8cf7400" },
