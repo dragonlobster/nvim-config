@@ -82,9 +82,7 @@ local function bind_keys_nonfern()
     end
 end
 
-local wkgroup = vim.api.nvim_create_augroup("wk-custom", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    group = wkgroup,
     pattern = { "*" },
     callback = bind_keys_nonfern
 })
