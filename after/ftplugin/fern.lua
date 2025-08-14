@@ -60,7 +60,7 @@ vim.keymap.set("n", "<Plug>(fern-navigate)", fern_navigate,
 vim.keymap.set("n", "<CR>", "<Plug>(fern-navigate)", { buffer = true, nowait = true })
 -- which key
 local fern_keys = {
-    { "<leader><cr>", "<Plug>(fern-cd)", desc = "Fern cd:", buffer = true }, -- fern :cd
+    { "<leader><cr>", "<Plug>(fern-cd)", desc = "Fern cd:", buffer = true, nowait = true }, -- fern :cd
 }
 wk.add(fern_keys)
 
