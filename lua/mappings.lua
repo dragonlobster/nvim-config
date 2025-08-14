@@ -24,7 +24,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- visual mode move down
 vim.keymap.set("n", "n", "nzzzv")            -- cursor stays in middle on n (find next)
 vim.keymap.set("n", "N", "Nzzzv")            -- cursor stays in middle on N (find next reverse)
 
-vim.keymap.set("n", "Q", "<nop>")            -- never press Q
+vim.keymap.set("n", "Q", "<nop>")            -- don't press Q (accidentally trigger macro)
+-- vim.keymap.set("n", "Q", "@q")            -- Q to trigger macro @q
 
 -- system copy TODO: put in which key?
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
