@@ -28,8 +28,9 @@ vim.keymap.set("n", "Q", "<nop>")            -- don't press Q (accidentally trig
 -- vim.keymap.set("n", "Q", "@q")            -- Q to trigger macro @q
 
 -- system copy TODO: put in which key?
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("v", "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>y", [["+Y]])
+vim.keymap.set("n", "<leader>Y", [[ggVG"+y]])
 
 -- vim.keymap.set("n", "+", "j")                -- go up
 -- vim.keymap.set("n", "-", "k")                -- go down
