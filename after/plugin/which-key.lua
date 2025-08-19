@@ -38,14 +38,16 @@ local all_keys = {
 wk.add(all_keys)
 
 -- if parrot is enabled then add the keys to which-key
-local parrot_keys = {
-    { "<leader>p",  group = "Parrot",         desc = "Parrot" },
-    { "<leader>pp", "<cmd>PrtChatToggle<cr>", desc = "Parrot Chat" }
+local codecompanion_keys = {
+    { "<leader>p",  group = "CodeCompanion",             mode = { "v", "n" },    desc = "AI Assistant" },
+    { "<leader>pp", "<cmd>CodeCompanionChat Toggle<cr>", desc = "AI Chat Toggle" },
+    { "<leader>pa", "<cmd>CodeCompanionActions<cr>",     mode = { "v", "n" },    desc = "AI Actions" },
+    { "<leader>pp", "<cmd>CodeCompanion<cr>",            mode = { "v" },         desc = "AI Prompt" }
 }
 
-if vim.tbl_get(require("lazy.core.config"), "plugins", "parrot", "_", "loaded")
+if vim.tbl_get(require("lazy.core.config"), "plugins", "codecompanion.nvim", "_", "loaded")
 then
-    wk.add(parrot_keys)
+    wk.add(codecompanion_keys)
 end
 
 

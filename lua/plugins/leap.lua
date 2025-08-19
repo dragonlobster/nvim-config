@@ -10,7 +10,7 @@ return {
         vim.api.nvim_create_autocmd("User", {
             pattern = "LeapEnter",
             callback = function()
-                vim.notify(vim.fn.nr2char(129432)) -- when leap is active show kangaroo
+                vim.notify(vim.fn.nr2char(0x1f998)) -- when leap is active show kangaroo
             end,
         }
 
