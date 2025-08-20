@@ -1,5 +1,3 @@
-local wk = require("which-key")
-
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
     callback = function(event)
@@ -7,18 +5,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- these will be buffer-local keybindings
         -- because they only work if you have an active language server
-        wk.add(
-            {
-                { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>",     buffer = 0, desc = "Declaration" },
-                { "gR", "<cmd>lua vim.lsp.buf.rename()<cr>",          buffer = 0, desc = "Rename" },
-                { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",      buffer = 0, desc = "Definition" },
-                { "gh", "<cmd>lua vim.lsp.buf.hover()<cr>",           buffer = 0, desc = "Hover" },
-                { "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>",  buffer = 0, desc = "Implementation" },
-                { "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", buffer = 0, desc = "Type defintion" },
-                { "gr", "<cmd>lua vim.lsp.buf.references()<cr>",      buffer = 0, desc = "References" },
-                { "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>",  buffer = 0, desc = "Signature" },
-            }
-        )
+        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { buffer = true, desc = "Declaration" })
+        vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = true, desc = "Rename" })
+        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { buffer = true, desc = "Definition" })
+        vim.keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", { buffer = true, desc = "Hover" })
+        vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", { buffer = true, desc = "Implementation" })
+        vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>",
+            { buffer = true, desc = "Type defintion" })
+        vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { buffer = true, desc = "References" })
+        vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = true, desc = "Signature" })
+        vim.keymap.set("n", "<leader>ge", "<cmd>lua vim.diagnostic.open_float()<cr>",
+            { desc = "Expand Error", buffer = true })
+
         vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
     end
 })

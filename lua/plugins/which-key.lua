@@ -4,6 +4,7 @@ return {
     opts = {
         preset = "helix",
         plugins = {
+            marks = false,
             presets = {
                 operators = false,
                 motions = false,
@@ -15,5 +16,6 @@ return {
             },
         },
         delay = 0,
+        sort = { "alphanum" }
     },
 }

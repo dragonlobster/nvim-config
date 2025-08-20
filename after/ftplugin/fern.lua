@@ -9,8 +9,6 @@ vim.keymap.set("n", "|", "<Plug>(fern-action-open:rightest)", { buffer = true })
 vim.opt_local.number = false                                                     -- no line numbers
 vim.opt_local.fillchars = { eob = " " }                                          -- fill chars
 
-
-
 -- ========== fern enter, expand, collapse ========== --
 
 local function fern_smart_leaf()
@@ -21,7 +19,7 @@ local function fern_smart_leaf()
     )
 end
 vim.keymap.set("n", "<Plug>(fern-smart-leaf)", fern_smart_leaf,
-    { buffer = true, expr = true, remap = false })
+    { buffer = true, expr = true })
 
 -- ========== fern enter, expand, collapse ========== --
 
@@ -35,7 +33,7 @@ local function fern_cd()
     )
 end
 vim.keymap.set("n", "<Plug>(fern-cd)", fern_cd,
-    { buffer = true, expr = true, remap = false })
+    { buffer = true, expr = true })
 
 -- ========== Fern CD                      ========== --
 
@@ -50,19 +48,16 @@ local function fern_navigate()
 end
 -- remap fern smart root to enter key
 vim.keymap.set("n", "<Plug>(fern-navigate)", fern_navigate,
-    { buffer = true, expr = true, remap = false })
+    { buffer = true, expr = true })
 
 -- ========== fern navigation plug         ========== --
 
 
 -- ========== fern PLUG keymaps            ========== --
 
-vim.keymap.set("n", "<CR>", "<Plug>(fern-navigate)", { buffer = true, nowait = true })
--- which key
-local fern_keys = {
-    { "<leader><cr>", "<Plug>(fern-cd)", desc = "Fern cd:", buffer = true, nowait = true }, -- fern :cd
-}
-wk.add(fern_keys)
+vim.keymap.set("n", "<cr>", "<Plug>(fern-navigate)", { buffer = true, nowait = true })
+
+vim.keymap.set("n", "<leader><cr>", "<Plug>(fern-cd)", { desc = "Fern cd: ", buffer = true, nowait = true })
 
 -- ========== fern PLUG keymaps            ========== --
 

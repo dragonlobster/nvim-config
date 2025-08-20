@@ -6,81 +6,53 @@ local terminal = require("snacks").terminal
 local dap = require("dap")
 local dapui = require("dapui")
 local conform = require("conform")
---local parrot = require("parrot")
 
--- after keymaps that are instant (no need which key)
 vim.keymap.set({ "n", "t" }, "<C-Bslash>", terminal.toggle)
---vim.keymap.set("t", "<C-Bslash>", "<C-Bslash><C-n><cmd>FloatermToggle<CR>")
 
 local function toggle_fern()
     vim.cmd("Fern . -reveal=% -stay -drawer -toggle") -- toggle Fern drawer
     vim.cmd("wincmd =")                               -- even out the size of all windows
 end
 
-local all_keys = {
-    { "<leader>a",  hf.harpoon_add,        desc = "Harpoon Add" },
-    { "<leader>b",  dap.toggle_breakpoint, desc = "Breakpoint" },
-    { "<leader>c",  "<cmd>confirm q<CR>",  desc = "Close Window" },
-    { "<leader>d",  dapui.toggle,          desc = "Debugger" },
-    { "<leader>e",  toggle_fern,           desc = "Explorer" },
-    { "<leader>f",  picker.files,          desc = "Find File" },
-    { "<leader>g",  group = "Git", },
-    { "<leader>gg", lazygit.open,          desc = "LazyGit" },
-    { "<leader>h",  "<cmd>nohlsearch<CR>", desc = "No Highlight" },
-    { "<leader>m",  hf.harpoon_menu,       desc = "Harpoon Menu" },
-    { "<leader>q",  "<cmd>confirm qa<CR>", desc = "Quit Neovim" },
-    { "<leader>s",  group = "Search" },
-    { "<leader>sk", picker.keymaps,        desc = "Keymaps" },
-    { "<leader>st", picker.grep,           desc = "Text" },
-    { "<leader>sf", picker.files,          desc = "Find File" },
+vim.keymap.set("n", "<leader>a", hf.harpoon_add, { desc = "Harpoon Add" })
+vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Breakpoint" })
+vim.keymap.set("n", "<leader>d", dapui.toggle, { desc = "Debugger" })
+vim.keymap.set("n", "<leader>e", toggle_fern, { desc = "Explorer" })
+vim.keymap.set("n", "<leader>f", picker.files, { desc = "Find File" })
+vim.keymap.set("n", "<leader>gg", lazygit.open, { desc = "LazyGit" })
+vim.keymap.set("n", "<leader>m", hf.harpoon_menu, { desc = "Harpoon Menu" })
+vim.keymap.set("n", "<leader>sk", picker.keymaps, { desc = "Keymaps" })
+vim.keymap.set("n", "<leader>st", picker.grep, { desc = "Text" })
+vim.keymap.set("n", "<leader>sf", picker.files, { desc = "Find File" })
+
+local all_groups = {
+    { "<leader>g", group = "Git", },
+    { "<leader>s", group = "Search" },
 }
 
-wk.add(all_keys)
+wk.add(all_groups)
 
--- if parrot is enabled then add the keys to which-key
-local codecompanion_keys = {
-    { "<leader>p",  group = "CodeCompanion",             mode = { "v", "n" },    desc = "AI Assistant" },
-    { "<leader>pp", "<cmd>CodeCompanionChat Toggle<cr>", desc = "AI Chat Toggle" },
-    { "<leader>pa", "<cmd>CodeCompanionActions<cr>",     mode = { "v", "n" },    desc = "AI Actions" },
-    { "<leader>pp", "<cmd>CodeCompanion<cr>",            mode = { "v" },         desc = "AI Prompt" }
-}
-
+-- AI Assistant
 if vim.tbl_get(require("lazy.core.config"), "plugins", "codecompanion.nvim", "_", "loaded")
 then
-    wk.add(codecompanion_keys)
+    wk.add({
+        { "<leader>p", group = "CodeCompanion", mode = { "v", "n" }, desc = "AI Assistant" },
+    })
+    vim.keymap.set("n", "<leader>pp", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "AI Chat Toggle" })
+    vim.keymap.set({ "v", "n" }, "<leader>pa", "<cmd>CodeCompanionActions<cr>", { desc = "AI Actions" })
+    vim.keymap.set("v", "<leader>pp", "<cmd>CodeCompanion<cr>", { desc = "AI Prompt" })
 end
 
 
 -- which keys that are only for filetype buffers
 local function bind_keys_nonfern()
     if vim.bo.filetype ~= "fern" then
-        local non_fern_keys = {
-            {
-                "<leader>l",
-                group = "LSP",
-                buffer = 0
-            },
-            {
-                "<leader>lf",
-                conform.format,
-                --"<cmd>lua vim.lsp.buf.format { async = true }<CR>",
-                desc = "Format",
-                buffer = 0
-            },
-            {
-                "<leader>w",
-                "<cmd>w!<CR>",
-                desc = "Save",
-                buffer = 0
-            },
-            {
-                "ge",
-                "<cmd>lua vim.diagnostic.open_float()<CR>",
-                desc = "Expand error",
-                buffer = 0
-            },
-        }
-        wk.add(non_fern_keys)
+        -- keymaps that don't belong in fern buffer
+        wk.add({
+            { "<leader>l", group = "LSP" },
+        })
+        vim.keymap.set("n", "<leader>lf", conform.format, { desc = "Format", buffer = true })
+        vim.keymap.set("n", "<leader>w", "<cmd>w!<cr>", { desc = "Save", buffer = true })
     end
 end
 
