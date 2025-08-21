@@ -1,4 +1,5 @@
-local wk = require("which-key")
+local arrow_persist = require("arrow.persist")
+local Path = require("plenary.path")
 
 vim.fn["glyph_palette#apply"]()
 
@@ -8,6 +9,24 @@ vim.keymap.set("n", "|", "<Plug>(fern-action-open:rightest)", { buffer = true })
 
 vim.opt_local.number = false                                                     -- no line numbers
 vim.opt_local.fillchars = { eob = " " }                                          -- fill chars
+
+-- ========== arrow add ========== --
+
+local function fern_arrow_add()
+    local isdir = vim.fn["fern#is_dir"]()
+    if isdir == 1 then
+        vim.notify("(arrow) Can't add directory", vim.log.levels.ERROR)
+        return
+    end
+    local path = vim.fn["fern#get_path"]()
+    local rpath = Path:new(path):make_relative(vim.uv.cwd())
+
+    arrow_persist.toggle(rpath)
+end
+
+vim.keymap.set("n", "<leader>a", fern_arrow_add, { desc = "Fern Arrow Add", buffer = true })
+
+-- ========== arrow add ========== --
 
 -- ========== fern enter, expand, collapse ========== --
 
