@@ -11,7 +11,6 @@
   "fern-renderer-nerdfont.vim": { "branch": "master", "commit": "325629c68eb543229715b68920fbcb92b206beb6" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "glyph-palette.vim": { "branch": "master", "commit": "675f0ad64e2c4b823bffc1907d469deefaf6e3bd" },
-  "harpoon": { "branch": "harpoon2", "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "leap.nvim": { "branch": "main", "commit": "8b03b5d62d11cd9da5ea8be62ab8e9ff3fabab8f" },
   "lexima.vim": { "branch": "master", "commit": "ab621e4756465c9d354fce88cff2bd1aa7887065" },

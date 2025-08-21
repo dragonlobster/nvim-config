@@ -32,9 +32,4 @@ return {
         "lambdalisue/fern-renderer-nerdfont.vim",
         dependencies = { "lambdalisue/vim-fern", "lambdalisue/glyph-palette.vim" },
     },
-    -- {
-    --     "dragonlobster/harpoon-fern.nvim",
-    --     opts = {},
-    --     dependencies = { "harpoon", "vim-fern", "nvim-lua/plenary.nvim" }
-    -- }
 }

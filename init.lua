@@ -31,3 +31,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 })
 
 vim.cmd.colorscheme "catppuccin"
+
+vim.loader.enable()
