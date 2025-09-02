@@ -28,7 +28,7 @@ return {
                         { buffer = true, desc = "References" })
                     vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>",
                         { buffer = true, desc = "Signature" })
-                    vim.keymap.set("n", "<leader>ge", "<cmd>lua vim.diagnostic.open_float()<cr>",
+                    vim.keymap.set("n", "ge", "<cmd>lua vim.diagnostic.open_float()<cr>",
                         { desc = "Expand Error", buffer = true })
 
                     vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
