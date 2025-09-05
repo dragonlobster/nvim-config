@@ -9,6 +9,9 @@ return {
     },
     lazy = false,
     priority = 50,
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+    end,
     dependencies = {
         "OXY2DEV/markview.nvim"
     }
