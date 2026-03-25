@@ -87,7 +87,8 @@ return {
                 "pyright",
                 "ts_ls",
                 "gopls",
-                "clangd"
+                "clangd",
+                "copilot"
             }
 
             return {

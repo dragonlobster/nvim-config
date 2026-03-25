@@ -25,6 +25,24 @@ vim.keymap.set("n", "<leader>sk", picker.keymaps, { desc = "Keymaps" })
 vim.keymap.set("n", "<leader>st", picker.grep, { desc = "Text" })
 vim.keymap.set("n", "<leader>sf", picker.files, { desc = "Find File" })
 
+
+-- copilot
+vim.keymap.set("i", "<M-[>", function()
+    require("copilot.suggestion").prev()
+end)
+
+vim.keymap.set("i", "<M-]>", function()
+    require("copilot.suggestion").next()
+end)
+
+vim.keymap.set("i", "<M-a>", function()
+    require("copilot.suggestion").accept()
+end)
+
+vim.keymap.set("i", "<M-d>", function()
+    require("copilot.suggestion").dismiss()
+end)
+
 local all_groups = {
     { "<leader>g", group = "Git", },
     { "<leader>s", group = "Search" },

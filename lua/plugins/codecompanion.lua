@@ -1,10 +1,34 @@
 return {
     {
         "zbirenbaum/copilot.lua",
-        opts = {}
+        event = "InsertEnter",
+        config = true,
+        opts = function()
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "BlinkCmpMenuOpen",
+                callback = function()
+                    vim.b.copilot_suggestion_hidden = true
+                end,
+            })
+
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "BlinkCmpMenuClose",
+                callback = function()
+                    vim.b.copilot_suggestion_hidden = false
+                end,
+            })
+
+            return {
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                },
+            }
+        end,
     },
 
     {
+
         "OXY2DEV/markview.nvim",
         lazy = false,
         priority = 49,
