@@ -1,6 +1,7 @@
 return {
     {
         "zbirenbaum/copilot.lua",
+        cond = not vim.env.OPENROUTER_API_KEY,
         event = "InsertEnter",
         config = true,
         opts = function()

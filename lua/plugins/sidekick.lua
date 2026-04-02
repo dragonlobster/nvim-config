@@ -1,5 +1,6 @@
 return {
     "folke/sidekick.nvim",
+    cond = not vim.env.OPENROUTER_API_KEY,
     opts = {
         nes = { enabled = true }
     },
